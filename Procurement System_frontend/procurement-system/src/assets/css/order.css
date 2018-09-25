@@ -1,0 +1,132 @@
+.settings-sub{
+    font-size: 16px;
+    margin-top: 35px;
+    padding: 20px;
+    width: 75%;
+    font-family: 'Poppins';
+}
+
+.setting-head{
+    font-size: 20px;
+    font-weight: 600;
+    color:#484848;
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.settings-item{
+
+    height: 35px;
+    width: 40%;
+    font-size: 18px;
+    padding-bottom: 60px;
+}
+.settings-combo{
+
+    padding-bottom: 13px;
+}
+
+
+.setting-item-label{
+
+    font-family: 'poppins';
+    font-size: 18px;
+}
+
+.settings-item input{
+
+    height: 35px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.settings-items{
+    padding-bottom: 15px;
+    display: flex;
+    flex-grow: 1;
+}
+
+.settings-items div{
+
+    flex-direction: row;
+    width: 100%;
+
+}
+
+.settings-items div:first-child{
+
+    margin-right: 35px;
+}
+
+.settings-items div input{
+
+    height: 35px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 6px;
+}
+
+.gender-group{
+    width: 100%;
+    margin-right: 35px;
+}
+
+.gender-group span{
+
+    margin-top: 6px;
+    display: flex;
+    flex-grow: 1;
+
+}
+
+.gender-group span span{
+    align-items: baseline;
+
+}
+
+.gender-group span input{
+    cursor: pointer;
+    margin-right: 6px;
+}
+
+.gender-group span label{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.combo{
+
+    height: 35px;
+    width: 40%;
+    font-size: 18px;
+}
+
+.order-add-button {
+    width: 40%;
+    height: 45px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.Patient-delete-button {
+    width: 40%;
+    height: 45px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
