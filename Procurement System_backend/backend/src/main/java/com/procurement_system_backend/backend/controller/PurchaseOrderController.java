@@ -38,11 +38,13 @@ public class PurchaseOrderController {
 	}
 
 	@RequestMapping(method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
-	public String InsertPurchaseOrder(@RequestBody PurchaseOrder po) {
+	public String InsertPurchaseOrder(@RequestBody Object po) {
 		
 		logger.info("POST Request handling");
+		System.out.println(po);
 		
-		String response=this.purchaseOrderService.CreateOrder(po);
+		//String response="";
+		String response=this.purchaseOrderService.CreateOrder((PurchaseOrder)po);
 		
 		return response;
 	}

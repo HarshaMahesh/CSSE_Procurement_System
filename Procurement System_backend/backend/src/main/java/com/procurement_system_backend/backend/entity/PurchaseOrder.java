@@ -5,9 +5,12 @@
 package com.procurement_system_backend.backend.entity;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author windula
@@ -20,7 +23,7 @@ public class PurchaseOrder {
 	@Id
 	private String OrderID;
 	private String Sequential_Reference;
-	//private HashMap<Item, Integer> Items; //error in class diagram
+	private Map<Item, Integer> Items; //error in class diagram
 	private String OrderStatus;
 	private String Date;
 	private boolean IsDraftPurchaseOrder;
@@ -30,19 +33,18 @@ public class PurchaseOrder {
 	/**
 	 * @param orderID
 	 * @param sequential_Reference
-	 * @param items removed for testing
+	 * @param items
 	 * @param orderStatus
 	 * @param date
 	 * @param isDraftPurchaseOrder
 	 * @param onHold
 	 */
-	
-	public PurchaseOrder(String orderID, String sequential_Reference, String orderStatus,
+	public PurchaseOrder(String orderID, String sequential_Reference, Map<Item, Integer> items, String orderStatus,
 			String date, boolean isDraftPurchaseOrder, boolean onHold) {
 		super();
 		OrderID = orderID;
 		Sequential_Reference = sequential_Reference;
-		//Items = items;
+		Items = items;
 		OrderStatus = orderStatus;
 		Date = date;
 		IsDraftPurchaseOrder = isDraftPurchaseOrder;
@@ -138,18 +140,23 @@ public class PurchaseOrder {
 	/**
 	 * @return the items
 	 */
-	/*public HashMap<Item, Integer> getItems() {
+	public Map<Item, Integer> getItems() {
 		return Items;
 	}
 
-	*//**
+	/**
 	 * @param items the items to set
-	 *//*
+	 */
 	public void setItems(HashMap<Item, Integer> items) {
 		Items = items;
 	}
-	*/
 	
+	private void convertObjectToMap(Object object) {
+		
+		ObjectMapper objMap= new ObjectMapper();
+		
+		
+	}
 	
 	
 }
