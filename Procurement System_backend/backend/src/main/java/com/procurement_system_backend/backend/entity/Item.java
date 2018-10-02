@@ -18,6 +18,7 @@ public class Item {
 	private float price;
 	private String DelivaryInformation;
 	private boolean IsRestrictedItem;
+	private String unit;
 	
 	/*
 	 * to be implemented

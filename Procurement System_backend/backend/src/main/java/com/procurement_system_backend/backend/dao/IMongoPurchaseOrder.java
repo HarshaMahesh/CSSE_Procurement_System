@@ -15,6 +15,6 @@ import com.procurement_system_backend.backend.entity.PurchaseOrder;
  */
 
 @Repository
-public interface IMongoPurchaseOrder extends  MongoRepository<PurchaseOrder, String> {
+public interface IMongoPurchaseOrder extends MongoRepository<PurchaseOrder, String> {
 
 }

@@ -4,12 +4,16 @@
  */
 package com.procurement_system_backend.backend.entity;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -21,13 +25,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class PurchaseOrder {
 
 	@Id
-	private String OrderID;
-	private String Sequential_Reference;
-	private Map<Item, Integer> Items; //error in class diagram
-	private String OrderStatus;
-	private String Date;
-	private boolean IsDraftPurchaseOrder;
+	private String _id;
+	private String orderID;
+	private String sequential_Reference;
+	private HashMap<String, Integer> items; //error in class diagram
+	//private ObjectMapper oItems;
+	private String orderStatus;
+	private String date;
+	private boolean isDraftPurchaseOrder;
 	private boolean onHold;
+	
+	
+	
+	
+	
 	
 	
 	/**
@@ -39,124 +50,104 @@ public class PurchaseOrder {
 	 * @param isDraftPurchaseOrder
 	 * @param onHold
 	 */
-	public PurchaseOrder(String orderID, String sequential_Reference, Map<Item, Integer> items, String orderStatus,
-			String date, boolean isDraftPurchaseOrder, boolean onHold) {
+	public PurchaseOrder(String orderID, String sequential_Reference, HashMap<String, Integer> items,
+			String orderStatus, String date, boolean isDraftPurchaseOrder, boolean onHold) {
 		super();
-		OrderID = orderID;
-		Sequential_Reference = sequential_Reference;
-		Items = items;
-		OrderStatus = orderStatus;
-		Date = date;
-		IsDraftPurchaseOrder = isDraftPurchaseOrder;
+		this.orderID = orderID;
+		this.sequential_Reference = sequential_Reference;
+		this.items = items;
+		this.orderStatus = orderStatus;
+		this.date = date;
+		this.isDraftPurchaseOrder = isDraftPurchaseOrder;
 		this.onHold = onHold;
 	}
-	
-	public PurchaseOrder() {}
-
 	/**
 	 * @return the orderID
 	 */
 	public String getOrderID() {
-		return OrderID;
+		return orderID;
 	}
-
 	/**
 	 * @param orderID the orderID to set
 	 */
 	public void setOrderID(String orderID) {
-		OrderID = orderID;
+		this.orderID = orderID;
 	}
-
 	/**
 	 * @return the sequential_Reference
 	 */
 	public String getSequential_Reference() {
-		return Sequential_Reference;
+		return sequential_Reference;
 	}
-
 	/**
 	 * @param sequential_Reference the sequential_Reference to set
 	 */
 	public void setSequential_Reference(String sequential_Reference) {
-		Sequential_Reference = sequential_Reference;
+		this.sequential_Reference = sequential_Reference;
 	}
-
+	/**
+	 * @return the items
+	 */
+	public HashMap<String, Integer> getItems() {
+		return items;
+	}
+	/**
+	 * @param items the items to set
+	 */
+	public void setItems(HashMap<String, Integer> items) {
+		this.items = items;
+	}
 	/**
 	 * @return the orderStatus
 	 */
 	public String getOrderStatus() {
-		return OrderStatus;
+		return orderStatus;
 	}
-
 	/**
 	 * @param orderStatus the orderStatus to set
 	 */
 	public void setOrderStatus(String orderStatus) {
-		OrderStatus = orderStatus;
+		this.orderStatus = orderStatus;
 	}
-
 	/**
 	 * @return the date
 	 */
 	public String getDate() {
-		return Date;
+		return date;
 	}
-
 	/**
 	 * @param date the date to set
 	 */
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
-
 	/**
 	 * @return the isDraftPurchaseOrder
 	 */
-	public boolean isIsDraftPurchaseOrder() {
-		return IsDraftPurchaseOrder;
+	public boolean isDraftPurchaseOrder() {
+		return isDraftPurchaseOrder;
 	}
-
 	/**
 	 * @param isDraftPurchaseOrder the isDraftPurchaseOrder to set
 	 */
-	public void setIsDraftPurchaseOrder(boolean isDraftPurchaseOrder) {
-		IsDraftPurchaseOrder = isDraftPurchaseOrder;
+	public void setDraftPurchaseOrder(boolean isDraftPurchaseOrder) {
+		this.isDraftPurchaseOrder = isDraftPurchaseOrder;
 	}
-
 	/**
 	 * @return the onHold
 	 */
 	public boolean isOnHold() {
 		return onHold;
 	}
-
 	/**
 	 * @param onHold the onHold to set
 	 */
 	public void setOnHold(boolean onHold) {
 		this.onHold = onHold;
 	}
-
-	/**
-	 * @return the items
-	 */
-	public Map<Item, Integer> getItems() {
-		return Items;
-	}
-
-	/**
-	 * @param items the items to set
-	 */
-	public void setItems(HashMap<Item, Integer> items) {
-		Items = items;
-	}
 	
-	private void convertObjectToMap(Object object) {
-		
-		ObjectMapper objMap= new ObjectMapper();
-		
-		
-	}
+	
+	
 	
 	
 }
