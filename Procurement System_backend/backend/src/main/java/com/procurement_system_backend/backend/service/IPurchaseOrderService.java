@@ -14,5 +14,7 @@ public interface IPurchaseOrderService {
 
 	String CreateOrder(PurchaseOrder po);
 	
+	PurchaseOrder getOrderByID(String orderId);
 	
+	String setOrderApproval(String orderId,String approval);
 }

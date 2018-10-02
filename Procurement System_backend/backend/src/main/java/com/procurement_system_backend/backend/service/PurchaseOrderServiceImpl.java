@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -42,8 +43,44 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 	@Override
 	public String CreateOrder(PurchaseOrder po) {
 		
-		this.MongoRepoPO.save(po);
-		return "Success";
+		PurchaseOrder response=this.MongoRepoPO.save(po);
+		return response.getOrderID();
+	}
+
+	/**
+	 * @param orderId
+	 * @return
+	 * 
+	 */
+	@Override
+	public PurchaseOrder getOrderByID(String orderId) {
+		PurchaseOrder response=this.MongoRepoPO.findByOrderID(orderId);
+		
+		return response;
+	}
+
+	/**
+	 * @param orderId
+	 * @return
+	 * 
+	 */
+	@Override
+	public String setOrderApproval(String orderId,String approval) {
+		
+		PurchaseOrder response=this.MongoRepoPO.findByOrderID(orderId);
+		
+		
+		if(response.getOrderID()!=null) {
+			response.setOrderStatus(approval);
+	
+			
+			PurchaseOrder updatedPO=this.MongoRepoPO.save(response);
+			
+			return updatedPO.getOrderID();
+		
+		}
+		else
+			return "error";
 	}
 
 
