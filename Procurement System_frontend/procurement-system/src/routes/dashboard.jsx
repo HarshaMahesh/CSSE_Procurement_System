@@ -1,5 +1,8 @@
 import Dashboard from "views/Dashboard/Dashboard";
-import AddOrder from "views/AddOrder/AddOrder";
+import AddOrder from "views/AddOrder/AddOrder.jsx";
+import ViewOrders from "views/AddOrder/ViewOrders.jsx";
+import AddItem from "views/AddItem/AddItem.jsx";
+
 import TableList from "views/TableList/TableList";
 import Typography from "views/Typography/Typography";
 import Icons from "views/Icons/Icons";
@@ -14,6 +17,12 @@ const dashboardRoutes = [
     icon: "pe-7s-graph",
     component: Dashboard
   },
+    {
+        path: "/AddItem",
+        name: "Add Items",
+        icon: "pe-7s-user",
+        component: AddItem
+    },
   {
     path: "/AddOrder",
     name: "Add Order",
@@ -21,23 +30,13 @@ const dashboardRoutes = [
     component: AddOrder
   },
     {
-        path: "/table",
-        name: "View Order",
+        path: "/ViewOrders",
+        name: "View previous Orders",
         icon: "pe-7s-note2",
-        component: TableList
+        component: ViewOrders
     },
-  {
-    path: "/table",
-    name: "previous Order",
-    icon: "pe-7s-note2",
-    component: TableList
-  },
-  {
-    path: "/typography",
-    name: "My Notification",
-    icon: "pe-7s-news-paper",
-    component: Typography
-  },
+
+
   { path: "/icons", name: "Approved Order", icon: "pe-7s-science", component: Icons },
 
     {
@@ -60,6 +59,18 @@ const dashboardRoutes = [
         name: "Payment",
         icon: "pe-7s-note2",
         component: TableList
+    },
+    {
+        path: "/table",
+        name: "previous Order",
+        icon: "pe-7s-note2",
+        component: TableList
+    },
+    {
+        path: "/typography",
+        name: "My Notification",
+        icon: "pe-7s-news-paper",
+        component: Typography
     },
 
   { redirect: true, path: "/", to: "/dashboard", name: "Dashboard" }

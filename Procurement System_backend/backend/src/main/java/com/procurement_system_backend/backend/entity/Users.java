@@ -12,15 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 @Document
-public class Users {
+public class Users extends AuthorisedEmployeeFactory{
 	
 	@Id
 	private String _id;
 	public String username;
 	public String password;
-	
-	
-	
 	
 	
 	/**
@@ -55,6 +52,41 @@ public class Users {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	/**
+	 * @param type
+	 * @return
+	 * 
+	 */
+	@Override
+	public AuthorisedEmployee getAuthorisedEmployee(String type) {
+		
+		AuthorisedEmployee employee;
+		
+		if(type.equalsIgnoreCase("SiteManager")) {
+			
+			employee=new SiteManager();
+			return employee;
+		}
+		
+		if(type.equalsIgnoreCase("Management")) {
+			employee=new Management();
+			return employee;
+		}
+		
+		if(type.equalsIgnoreCase("SeniorMember")) {
+			employee=new SeniorMember();
+			return employee;
+		}
+		
+		if(type.equalsIgnoreCase("ProcStaff")) {
+			employee=new ProcurementDepartmentStaff();
+			return employee;
+		}
+		
+		return null;
+		
 	}
 	
 	
