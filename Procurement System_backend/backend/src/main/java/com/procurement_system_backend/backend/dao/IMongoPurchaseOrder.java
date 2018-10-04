@@ -4,6 +4,8 @@
  */
 package com.procurement_system_backend.backend.dao;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +21,6 @@ public interface IMongoPurchaseOrder extends MongoRepository<PurchaseOrder, Stri
 
 	
 	PurchaseOrder findByOrderID(String orderID);
+	
+	List<PurchaseOrder> findAllByOrderStatus(String orderStatus);
 }
