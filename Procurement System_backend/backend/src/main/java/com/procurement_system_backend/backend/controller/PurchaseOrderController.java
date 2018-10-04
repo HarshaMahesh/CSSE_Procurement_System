@@ -48,7 +48,7 @@ public class PurchaseOrderController {
 	}
 
 	
-	@RequestMapping(value="/addOrder",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/addOrder",method=RequestMethod.POST)
 	public String InsertPurchaseOrder(@RequestBody PurchaseOrder po) {
 		
 		logger.info("POST add order Request handling");
@@ -64,7 +64,7 @@ public class PurchaseOrderController {
 	*/
 	
 	
-	@RequestMapping(value="/getOrders/{id}",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/getOrders/{id}",method=RequestMethod.GET)
 	public ResponseEntity<PurchaseOrder> getPOByID(@PathVariable String id) {
 		
 		logger.info("GET Request order by ID handling");
@@ -75,7 +75,7 @@ public class PurchaseOrderController {
 		return new ResponseEntity<PurchaseOrder>(response, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/orderApproval",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/orderApproval",method=RequestMethod.PUT)
 	public String getPOByID(@RequestBody Map<String,String> payload) {
 		
 		logger.info("PUT Request order approval handling");
@@ -86,7 +86,7 @@ public class PurchaseOrderController {
 		return response;
 	}
 	
-	@RequestMapping(value="/Orders",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/Orders",method=RequestMethod.GET)
 	public ResponseEntity<List<PurchaseOrder>> getAllPO() {
 		
 		logger.info("GET Request all orders handling");
@@ -98,7 +98,7 @@ public class PurchaseOrderController {
 	
 	}
 	
-	@RequestMapping(value="/orderApproval/{id}",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/orderApproval/{id}",method=RequestMethod.GET)
 	public ResponseEntity<List<PurchaseOrder>> getPOByApproval(@PathVariable String id) {
 		
 		logger.info("GET Request order by Approval handling");
@@ -111,7 +111,7 @@ public class PurchaseOrderController {
 	}
 	
 	
-	@RequestMapping(value="/updateOrder/{id}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/updateOrder/{id}",method=RequestMethod.PUT)
 	public String UpdateOrder(@PathVariable String id,@RequestBody PurchaseOrder updatingPO) {
 		
 		logger.info("PUT update PO Request handling");

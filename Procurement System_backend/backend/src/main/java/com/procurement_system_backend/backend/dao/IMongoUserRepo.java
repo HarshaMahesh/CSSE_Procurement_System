@@ -14,6 +14,6 @@ import com.procurement_system_backend.backend.entity.Users;
  */
 public interface IMongoUserRepo extends MongoRepository<Users, String> {
 	
-	
+	Users findByUsername(String username);
 
 }

@@ -9,5 +9,5 @@ import com.procurement_system_backend.backend.entity.Users;
  */
 public interface IUserService {
 
-	Users loginUser(String username,String pwd);
+	Users loginUser(String username);
 }

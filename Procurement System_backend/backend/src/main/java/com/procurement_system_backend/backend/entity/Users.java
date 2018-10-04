@@ -11,15 +11,45 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author windula
  *
  */
-@Document
+@Document(collection="User")
 public class Users extends AuthorisedEmployeeFactory{
 	
 	@Id
 	private String _id;
-	public String username;
-	public String password;
+	private String username;
+	private String password;
+	private String role;
 	
 	
+	
+	
+	public Users() {
+		
+	}
+	
+	/**
+	 * @param username
+	 * @param password
+	 * @param role
+	 */
+	public Users(String username, String password, String role) {
+		//super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
 	/**
 	 * @param username
 	 * @param password
@@ -60,10 +90,11 @@ public class Users extends AuthorisedEmployeeFactory{
 	 * 
 	 */
 	@Override
-	public AuthorisedEmployee getAuthorisedEmployee(String type) {
+	public AuthorisedEmployee getAuthorisedEmployee() {
 		
 		AuthorisedEmployee employee;
 		
+		String type=this.role;
 		if(type.equalsIgnoreCase("SiteManager")) {
 			
 			employee=new SiteManager();

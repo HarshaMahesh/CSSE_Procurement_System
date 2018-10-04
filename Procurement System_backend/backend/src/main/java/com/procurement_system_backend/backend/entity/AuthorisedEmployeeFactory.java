@@ -10,6 +10,6 @@ package com.procurement_system_backend.backend.entity;
  */
 public abstract class AuthorisedEmployeeFactory {
 	
-	public abstract AuthorisedEmployee getAuthorisedEmployee(String type);
+	public abstract AuthorisedEmployee getAuthorisedEmployee();
 
 }
