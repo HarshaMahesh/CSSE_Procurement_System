@@ -4,17 +4,9 @@
  */
 package com.procurement_system_backend.backend.entity;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author windula
@@ -28,17 +20,11 @@ public class PurchaseOrder {
 	private String _id;
 	private String orderID;
 	private String sequential_Reference;
-	private HashMap<String, Integer> items; //error in class diagram
-	//private ObjectMapper oItems;
+	private HashMap<String, Double> items; //error in class diagram
 	private String orderStatus;
 	private String date;
 	private boolean isDraftPurchaseOrder;
 	private boolean onHold;
-	
-	
-	
-	
-	
 	
 	
 	/**
@@ -50,7 +36,7 @@ public class PurchaseOrder {
 	 * @param isDraftPurchaseOrder
 	 * @param onHold
 	 */
-	public PurchaseOrder(String orderID, String sequential_Reference, HashMap<String, Integer> items,
+	public PurchaseOrder(String orderID, String sequential_Reference, HashMap<String, Double> items,
 			String orderStatus, String date, boolean isDraftPurchaseOrder, boolean onHold) {
 		super();
 		this.orderID = orderID;
@@ -88,13 +74,13 @@ public class PurchaseOrder {
 	/**
 	 * @return the items
 	 */
-	public HashMap<String, Integer> getItems() {
+	public HashMap<String, Double> getItems() {
 		return items;
 	}
 	/**
 	 * @param items the items to set
 	 */
-	public void setItems(HashMap<String, Integer> items) {
+	public void setItems(HashMap<String, Double> items) {
 		this.items = items;
 	}
 	/**

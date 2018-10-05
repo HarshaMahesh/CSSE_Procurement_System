@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.procurement_system_backend.backend.entity.Item;
-import com.procurement_system_backend.backend.entity.PurchaseOrder;
 import com.procurement_system_backend.backend.service.ItemServiceImpl;
 
 /**

@@ -23,4 +23,5 @@ public interface IMongoPurchaseOrder extends MongoRepository<PurchaseOrder, Stri
 	PurchaseOrder findByOrderID(String orderID);
 	
 	List<PurchaseOrder> findAllByOrderStatus(String orderStatus);
+	
 }

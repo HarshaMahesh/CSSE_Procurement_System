@@ -6,19 +6,25 @@ package com.procurement_system_backend.backend.entity;
 
 import java.util.HashMap;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author windula
  *
  */
+@Document(collection="Supplier")
 public class Supplier {
 	
+	@Id
+	private String _id;
 	private int supplierID;
 	private String supplierName;
 	private int bankAccntNo;
 	private String address;
 	private String email;
 	private String phone;
-	private HashMap<Item, Integer> Items;
+	private HashMap<String, Double> items;
 	private boolean available;
 	/**
 	 * @return the supplierID
@@ -95,14 +101,14 @@ public class Supplier {
 	/**
 	 * @return the items
 	 */
-	public HashMap<Item, Integer> getItems() {
-		return Items;
+	public HashMap<String, Double> getItems() {
+		return items;
 	}
 	/**
 	 * @param items the items to set
 	 */
-	public void setItems(HashMap<Item, Integer> items) {
-		Items = items;
+	public void setItems(HashMap<String, Double> items) {
+		this.items = items;
 	}
 	/**
 	 * @return the available
