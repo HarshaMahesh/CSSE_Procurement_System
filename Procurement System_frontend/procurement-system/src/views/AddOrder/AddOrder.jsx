@@ -104,10 +104,10 @@ class AddOrder extends Component {
               <Grid fluid>
                   <div className="card">
                       <div className="header">
-                          <center><b><h4 className="title">Item Details</h4></b></center>
+                          <center><b><h4 className="title">Order Details</h4></b></center>
                           <div className="settings-search-item input">
 
-                              <div className="setting-item-label">Search Item</div>
+                              <div className="setting-item-label">Search Order</div>
                               <input type="text" name="profile-lname" onChange={this.setselectedBedNo}  />
 
                           </div>
@@ -120,18 +120,18 @@ class AddOrder extends Component {
 
 
                                   <div className="settings-item">
-                                      <div className="setting-item-label">Item_id</div>
+                                      <div className="setting-item-label">Order ID</div>
                                       <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
 
                                   </div><br/>
 
                                   <div className="settings-item">
-                                      <div className="setting-item-label">Item Name</div>
+                                      <div className="setting-item-label">sequential_Reference</div>
                                       <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
 
                                   </div><br/>
                                   <div className="settings-combo">
-                                      <div className="setting-item-label">Item</div>
+                                      <div className="setting-item-label">Items</div>
                                       <select className="combo" onChange={this.setselectedWardNo}>
                                           <option>Item-1</option>
                                           <option>Item-2</option>
@@ -141,29 +141,37 @@ class AddOrder extends Component {
                                   </div>
                                   <br/>
                                   <div className="settings-item">
-                                      <div className="setting-item-label">Price</div>
+                                      <div className="setting-item-label">Order Status</div>
                                       <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
 
                                   </div><br/>
                                   <div className="settings-item">
-                                      <div className="setting-item-label">Delivary Information</div>
+                                      <div className="setting-item-label">Date</div>
                                       <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
 
                                   </div><br/>
-                                  <div className="settings-item">
-                                      <div className="setting-item-label">Status</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                  <div className="settings-combo">
+                                      <div className="setting-item-label">Draft Purchase</div>
+                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                          <option>True</option>
+                                          <option>False</option>
+                                      </select>
 
-                                  </div><br/>
-                                  <div className="settings-item">
-                                      <div className="setting-item-label">Unit</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                  </div>
+                                 <br/>
+                                  <div className="settings-combo">
+                                      <div className="setting-item-label">On Hold</div>
+                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                          <option>True</option>
+                                          <option>False</option>
+                                      </select>
 
-                                  </div><br/>
+                                  </div>
+                                 <br/>
 
                                   <br/>
                                   <button type="button" name="save" className="order-add-button"
-                                          onClick={this.submitAdmissionData}>Add Item
+                                          onClick={this.submitAdmissionData}>Add Order
                                   </button>
                               </Col>
                               <Col md={8}>
@@ -171,7 +179,7 @@ class AddOrder extends Component {
                                   <br/>
                                   <Card
                                       plain
-                                      title="Item details update and delete"
+                                      title="Order details update and delete"
                                       ctTableFullWidth
                                       ctTableResponsive
                                       content={
