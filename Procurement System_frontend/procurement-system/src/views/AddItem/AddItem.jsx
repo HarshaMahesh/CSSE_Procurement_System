@@ -95,7 +95,7 @@ class AddItem extends Component {
     };
 
     ViewAll_Items(){
-        Axios.get('http://localhost:8083/api/item/getItem').then(function (data) {
+        Axios.get('http://localhost:8083/api/item/getItems').then(function (data) {
             this.setItemsData(data.data);
             console.log(data);
         }.bind(this))

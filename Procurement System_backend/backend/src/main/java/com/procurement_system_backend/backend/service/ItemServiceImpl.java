@@ -4,6 +4,8 @@
  */
 package com.procurement_system_backend.backend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,6 +82,15 @@ public class ItemServiceImpl implements IItemService{
 		
 		Item response=this.MongoRepoItem.findByItemID(itemID);
 		
+		return response;
+	}
+
+
+
+
+	@Override
+	public List<Item> getAllItem() {
+		List<Item> response=this.MongoRepoItem.findAll();
 		return response;
 	}
 

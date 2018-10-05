@@ -4,6 +4,8 @@
  */
 package com.procurement_system_backend.backend.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.procurement_system_backend.backend.entity.Item;
+import com.procurement_system_backend.backend.entity.PurchaseOrder;
 import com.procurement_system_backend.backend.service.ItemServiceImpl;
 
 /**
@@ -57,6 +60,17 @@ public class ItemController {
 		Item response=this.itemAddService.getItemByID(id);
 		
 		return new ResponseEntity<Item>(response, HttpStatus.OK);
+	}
+	@RequestMapping(value="/getItems",method=RequestMethod.GET)
+	public ResponseEntity<List<Item>> getAllPO() {
+		
+		logger.info("GET Request all orders handling");
+		
+		
+		List<Item> response=this.itemAddService.getAllItem();
+		
+		return new ResponseEntity<List<Item>>(response, HttpStatus.OK);
+	
 	}
 	
 	@RequestMapping(value="/updateItem/{id}",method=RequestMethod.PUT,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)

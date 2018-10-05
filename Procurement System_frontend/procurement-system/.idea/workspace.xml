@@ -17,8 +17,8 @@
       <file leaf-file-name="AddItem.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/AddItem/AddItem.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="102" column="17" lean-forward="true" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+            <state relative-caret-position="68">
+              <caret line="97" column="58" lean-forward="false" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -394,12 +394,12 @@
       <workItem from="1538503576320" duration="6435000" />
       <workItem from="1538715332653" duration="15443000" />
       <workItem from="1538733626774" duration="2418000" />
-      <workItem from="1538917698846" duration="2588000" />
+      <workItem from="1538917698846" duration="3843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54473000" />
+    <option name="totallyTimeSpent" value="55728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -802,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/AddItem/AddItem.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="102" column="17" lean-forward="true" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="97" column="58" lean-forward="false" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
