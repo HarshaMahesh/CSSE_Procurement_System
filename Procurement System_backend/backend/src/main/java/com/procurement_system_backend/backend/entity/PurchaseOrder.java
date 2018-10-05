@@ -25,6 +25,8 @@ public class PurchaseOrder {
 	private String date;
 	private boolean isDraftPurchaseOrder;
 	private boolean onHold;
+	private String supplierID;
+	private String invoiceID;
 	
 	
 	/**
@@ -35,9 +37,11 @@ public class PurchaseOrder {
 	 * @param date
 	 * @param isDraftPurchaseOrder
 	 * @param onHold
+	 * @param supplierID
+	 * @param invoiceID
 	 */
-	public PurchaseOrder(String orderID, String sequential_Reference, HashMap<String, Double> items,
-			String orderStatus, String date, boolean isDraftPurchaseOrder, boolean onHold) {
+	public PurchaseOrder(String orderID, String sequential_Reference, HashMap<String, Double> items, String orderStatus,
+			String date, boolean isDraftPurchaseOrder, boolean onHold, String supplierID, String invoiceID) {
 		super();
 		this.orderID = orderID;
 		this.sequential_Reference = sequential_Reference;
@@ -46,7 +50,34 @@ public class PurchaseOrder {
 		this.date = date;
 		this.isDraftPurchaseOrder = isDraftPurchaseOrder;
 		this.onHold = onHold;
+		this.supplierID = supplierID;
+		this.invoiceID = invoiceID;
 	}
+	/**
+	 * @return the supplierID
+	 */
+	public String getSupplierID() {
+		return supplierID;
+	}
+	/**
+	 * @param supplierID the supplierID to set
+	 */
+	public void setSupplierID(String supplierID) {
+		this.supplierID = supplierID;
+	}
+	/**
+	 * @return the invoiceID
+	 */
+	public String getInvoiceID() {
+		return invoiceID;
+	}
+	/**
+	 * @param invoiceID the invoiceID to set
+	 */
+	public void setInvoiceID(String invoiceID) {
+		this.invoiceID = invoiceID;
+	}
+
 	/**
 	 * @return the orderID
 	 */
