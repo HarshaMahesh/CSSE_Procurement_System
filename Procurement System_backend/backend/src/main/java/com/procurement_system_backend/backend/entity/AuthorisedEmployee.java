@@ -8,7 +8,7 @@ package com.procurement_system_backend.backend.entity;
  * @author windula
  *
  */
-public class AuthorisedEmployee {
+public abstract class AuthorisedEmployee {
 	
 	private int employeeID;
 	private String employeeName;
@@ -89,6 +89,6 @@ public class AuthorisedEmployee {
 		this.phone = phone;
 	}
 	
-	
+	public abstract void addComment();
 
 }
