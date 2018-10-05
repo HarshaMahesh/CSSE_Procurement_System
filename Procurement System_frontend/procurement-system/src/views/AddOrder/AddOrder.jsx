@@ -5,11 +5,14 @@ import {
   Grid,
   Row,
   Col,
+  Table
  // FormGroup,
  //ControlLabel,
 } from "react-bootstrap";
-import '../../assets/css/order.css';
+import '../../assets/css/all.css';
 import { Card } from "components/Card/Card.jsx";
+
+
 //import avatar from "assets/img/faces/face-3.jpg";
 
 class AddOrder extends Component {
@@ -95,58 +98,125 @@ class AddOrder extends Component {
 
 
   render() {
-    return <div>
-        <div className="content">
-            <Grid fluid>
-                <Row>
-                    <Col>
-                        <Card
-                            title="Order Details"
-                            content={
+      return (
 
-                                <form action="">
+          <div className="content">
+              <Grid fluid>
+                  <div className="card">
+                      <div className="header">
+                          <center><b><h4 className="title">Item Details</h4></b></center>
+                          <div className="settings-search-item input">
 
-                                    <div className="settings-combo">
-                                        <div className="setting-item-label">Item</div>
-                                        <select className="combo" onChange={this.setselectedWardNo}>
-                                            <option>Item-1</option>
-                                            <option>Item-2</option>
-                                            <option>Item-3</option>
-                                        </select>
+                              <div className="setting-item-label">Search Item</div>
+                              <input type="text" name="profile-lname" onChange={this.setselectedBedNo}  />
 
-                                    </div>
-                                    <br/>
-                                    <div className="settings-item">
-                                        <div className="setting-item-label">Quantity</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedPatientData}/>
-                                    </div>
-                                    <br/>
-                                    <br/>
+                          </div>
+                          <hr/>
 
-                                    <div className="settings-item">
-                                        <div className="setting-item-label">Action</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
-
-                                    </div>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <button type="button" name="save" className="order-add-button"
-                                            onClick={this.submitAdmissionData}>Add Order
-                                    </button>
-                                </form>
-
-                            }
-                            />
-                    </Col>
-                </Row>
-            </Grid>
-        </div>
+                      </div>
+                      <div className="content">
+                          <Row>
+                              <Col md={4}>
 
 
-    </div>
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Item_id</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Item Name</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+                                  <div className="settings-combo">
+                                      <div className="setting-item-label">Item</div>
+                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                          <option>Item-1</option>
+                                          <option>Item-2</option>
+                                          <option>Item-3</option>
+                                      </select>
+
+                                  </div>
+                                  <br/>
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Price</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Delivary Information</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Status</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+                                  <div className="settings-item">
+                                      <div className="setting-item-label">Unit</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+
+                                  </div><br/>
+
+                                  <br/>
+                                  <button type="button" name="save" className="order-add-button"
+                                          onClick={this.submitAdmissionData}>Add Item
+                                  </button>
+                              </Col>
+                              <Col md={8}>
+
+                                  <br/>
+                                  <Card
+                                      plain
+                                      title="Item details update and delete"
+                                      ctTableFullWidth
+                                      ctTableResponsive
+                                      content={
+                                          <Table hover>
+                                              <thead>
+                                              <tr>
+
+                                                  <th className="employee-num-column">ID</th>
+                                                  <th className="employee-id">Name</th>
+                                                  <th className="employee-name">Category ID</th>
+                                                  <th className="employee-designation">Price</th>
+                                                  <th className="employee-mobile">Delivary Information</th>
+                                                  <th className="employee-mobile">Status</th>
+                                                  <th className="employee-edit">Unit</th>
+                                              </tr>
+                                              </thead>
+                                              <tbody>
+
+                                              </tbody>
+                                          </Table>
+                                      }
+                                  />
+                                  <br/>
+
+                                  <button type="button" name="save" className="order-add-button"
+                                          onClick={this.submitAdmissionData}>Update
+                                  </button>
+                                  <button type="button" name="save" className="order-add-button"
+                                          onClick={this.submitAdmissionData}> Delete
+                                  </button>
+
+                              </Col>
+                          </Row>
+                          <br />
+                          <br />
+                          <div className="places-buttons">
+
+
+
+                          </div>
+                      </div>
+                  </div>
+              </Grid>
+          </div>
+      );
   }
 }
 
