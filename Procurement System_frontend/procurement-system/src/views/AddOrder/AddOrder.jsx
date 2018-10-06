@@ -5,12 +5,14 @@ import {
   Grid,
   Row,
   Col,
+
   Table
  // FormGroup,
  //ControlLabel,
 } from "react-bootstrap";
 import '../../assets/css/all.css';
 import { Card } from "components/Card/Card.jsx";
+
 
 
 //import avatar from "assets/img/faces/face-3.jpg";
@@ -20,84 +22,99 @@ class AddOrder extends Component {
     constructor(props) {
         super(props);
        // this.setAdmissionData = this.setAdmissionData.bind(this);
-        this.submitAdmissionData = this.submitAdmissionData.bind(this);
+        this.submitItemData = this.submitItemData.bind(this);
 
-        this.setselectedBHTNo = this.setselectedBHTNo.bind(this);
-        this.setselectedPatientData = this.setselectedPatientData.bind(this);
-        this.setselectedWardNo = this.setselectedWardNo.bind(this);
-        this.setselectedBedNo = this.setselectedBedNo.bind(this);
-        this.setselectedAdmittedDate = this.setselectedAdmittedDate.bind(this);
-        this.setselectedadmittedTime = this.setselectedadmittedTime.bind(this);
+        this.setselectedorderID = this.setselectedorderID.bind(this);
+        this.setselectedsequential_Reference = this.setselectedsequential_Reference.bind(this);
+        this.setselecteditems = this.setselecteditems.bind(this);
+        this.setselectedquantity = this.setselectedquantity.bind(this);
+        this.setselectedorderStatus = this.setselectedorderStatus.bind(this);
+        this.setselecteddate = this.setselecteddate.bind(this);
+        this.setselectedisDraftPurchaseOrder = this.setselectedisDraftPurchaseOrder.bind(this);
+        this.setselectedadonHolde = this.setselectedadonHolde.bind(this);
 
 
         this.state = {
 
-            selectedBhtNo:"",
-            selectedPatientName:"",
-            selectedWardNo:"",
-            selectedBedNo:"",
-            selectedAdmittedDate:"",
-            selectedAdmittedTime:0,
+            selectedorderID:"",
+            selectedsequential_Reference:"",
+            selecteditems:"",
+            selectedquantity:"",
+            selectedorderStatus:"",
+            selectedonDate:"",
+            selectedisDraftPurchaseOrder:"",
+            selectedonHold:"",
             name: 'Composed TextField'
         };
     }
-    setselectedBHTNo(e){
-        this.setState({selectedBhtNo:e.target.value});
+    setselectedorderID(e){
+        this.setState({selectedorderID:e.target.value});
     }
 
-    setselectedPatientData(e){
-        this.setState({selectedPatientName:e.target.value});
+    setselectedsequential_Reference(e){
+        this.setState({selectedsequential_Reference:e.target.value});
     }
 
-    setselectedWardNo(e){
-        this.setState({selectedWardNo:e.target.value});
+    setselecteditems(e){
+        this.setState({selecteditems:e.target.value});
+    }
+    setselectedquantity(e){
+        this.setState({selectedquantity:e.target.value});
     }
 
-    setselectedBedNo(e){
-        this.setState({selectedBedNo:e.target.value});
+    setselectedorderStatus(e){
+        this.setState({selectedorderStatus:e.target.value});
     }
 
-    setselectedAdmittedDate(e){
-        this.setState({selectedAdmittedDate:e.target.value});
+    setselecteddate(e){
+        this.setState({selectedonDate:e.target.value});
     }
 
-    setselectedadmittedTime(e){
-        this.setState({selectedAdmittedTime:e.target.value});
+    setselectedisDraftPurchaseOrder(e){
+        this.setState({selectedisDraftPurchaseOrder:e.target.value});
+    }
+    setselectedadonHolde(e){
+        this.setState({selectedonHold:e.target.value});
     }
 
-
-
-    //
-    // setAdmissionData(e){
-    //     console.log(e.target.value)
-    // }
-
-    submitAdmissionData(){
+    submitItemData(){
         //console.log("Button Clicked");
+
+
+        var quantitis1=this.state.selecteditems;
+        var quantitis=parseInt(this.state.selectedquantity);
+
+
+
         let object = {
-            BHTNo: this.state.selectedBhtNo,
-            patientName: this.state.selectedPatientName,
-            wardNo: this.state.selectedWardNo,
-            bedNo: this.state.selectedBedNo,
-            admittedDate: this.state.selectedAdmittedDate,
-            admittedTime: this.state.selectedAdmittedTime
+            orderID: this.state.selectedorderID,
+            sequential_Reference: this.state.selectedsequential_Reference,
+            items: {quantitis1:quantitis},
+            orderStatus: this.state.selectedorderStatus,
+            date: this.state.selectedonDate,
+            isDraftPurchaseOrder: this.state.selectedisDraftPurchaseOrder,
+            onHold: this.state.selectedonHold
         }
 
         console.log(object);
 
-        Axios.post('http://localhost:8083/patients',object).then(function (data) {
+        Axios.post('http://localhost:8083/api/purchase_order/addOrder',object).then(function (data) {
             console.log(data);
-            console.log("New Patient Admission Added");
-            alert("New Patient Admission Added");
+            console.log("New Order Details Added");
+            alert("New Order Details Added");
+
         })
     }
+
+
     handleChange = event => {
         this.setState({ name: event.target.value });
     };
 
 
-
   render() {
+
+
       return (
 
           <div className="content">
@@ -108,7 +125,7 @@ class AddOrder extends Component {
                           <div className="settings-search-item input">
 
                               <div className="setting-item-label">Search Order</div>
-                              <input type="text" name="profile-lname" onChange={this.setselectedBedNo}  />
+                              <input type="text" name="profile-lname" onChange=""  />
 
                           </div>
                           <hr/>
@@ -121,18 +138,18 @@ class AddOrder extends Component {
 
                                   <div className="settings-item">
                                       <div className="setting-item-label">Order ID</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedorderID}/>
 
                                   </div><br/>
 
                                   <div className="settings-item">
-                                      <div className="setting-item-label">sequential_Reference</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                      <div className="setting-item-label">Sequential Reference</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedsequential_Reference}/>
 
                                   </div><br/>
                                   <div className="settings-combo">
                                       <div className="setting-item-label">Items</div>
-                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                      <select className="combo" onChange={this.setselecteditems}>
                                           <option>Item-1</option>
                                           <option>Item-2</option>
                                           <option>Item-3</option>
@@ -141,18 +158,23 @@ class AddOrder extends Component {
                                   </div>
                                   <br/>
                                   <div className="settings-item">
+                                      <div className="setting-item-label">Quantity</div>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedquantity}/>
+
+                                  </div><br/>
+                                  <div className="settings-item">
                                       <div className="setting-item-label">Order Status</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                      <input type="text" name="profile-lname" onChange={this.setselectedorderStatus}/>
 
                                   </div><br/>
                                   <div className="settings-item">
                                       <div className="setting-item-label">Date</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedBedNo}/>
+                                      <input type="text" name="profile-lname" onChange={this.setselecteddate}/>
 
                                   </div><br/>
                                   <div className="settings-combo">
                                       <div className="setting-item-label">Draft Purchase</div>
-                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                      <select className="combo" onChange={this.setselectedisDraftPurchaseOrder}>
                                           <option>True</option>
                                           <option>False</option>
                                       </select>
@@ -161,7 +183,7 @@ class AddOrder extends Component {
                                  <br/>
                                   <div className="settings-combo">
                                       <div className="setting-item-label">On Hold</div>
-                                      <select className="combo" onChange={this.setselectedWardNo}>
+                                      <select className="combo" onChange={this.setselectedadonHolde}>
                                           <option>True</option>
                                           <option>False</option>
                                       </select>
@@ -171,7 +193,7 @@ class AddOrder extends Component {
 
                                   <br/>
                                   <button type="button" name="save" className="order-add-button"
-                                          onClick={this.submitAdmissionData}>Add Order
+                                          onClick={this.submitItemData}>Add Order
                                   </button>
                               </Col>
                               <Col md={8}>
@@ -225,6 +247,7 @@ class AddOrder extends Component {
               </Grid>
           </div>
       );
+
   }
 }
 

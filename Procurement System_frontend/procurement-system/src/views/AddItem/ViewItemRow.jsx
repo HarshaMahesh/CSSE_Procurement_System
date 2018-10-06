@@ -13,7 +13,7 @@ class ViewItemRow extends Component{
                 <td>{this.props.categoryID}</td>
                 <td>{this.props.price}</td>
                 <td>{this.props.delivaryInformation}</td>
-                <td>{this.props.isRestrictedItem}</td>
+                <td>{this.props.restrictedItem}</td>
                 <td>{this.props.unit}</td>
             </tr>
         )

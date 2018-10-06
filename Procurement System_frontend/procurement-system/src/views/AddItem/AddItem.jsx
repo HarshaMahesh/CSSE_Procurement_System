@@ -25,6 +25,9 @@ class AddItem extends Component {
         super(props);
 
         this.submitItemData = this.submitItemData.bind(this);
+        this.setItemsData = this.setItemsData.bind(this);
+        this.setSearchData = this.setSearchData.bind(this);
+
 
         this.setselectedItemId = this.setselectedItemId.bind(this);
         this.setselectedItemName = this.setselectedItemName.bind(this);
@@ -36,6 +39,7 @@ class AddItem extends Component {
 
         this.state = {
 
+
             selectedItemId:"",
             selectedItemName:"",
             selectedCategoryID:"",
@@ -43,16 +47,16 @@ class AddItem extends Component {
             selectedDelivaryInformation:"",
             selectedRestrictedItem:"",
             selectedUnit:"",
+            ItemData:[],
+            searchdata:[],
+
             name: 'Composed TextField'
         };
 
-        super(props);
-        this.ViewAll_Items();
-        this.state = {
-            ItemsData:[],
-        }
-        this.setItemsData = this.setItemsData.bind(this);
-        this.setsearchData=this.setsearchData.bind(this);
+        this.tableload();
+
+
+
 
     }
     setselectedItemId(e){
@@ -83,28 +87,34 @@ class AddItem extends Component {
     }
 
     setItemsData(ItemsData){
-        this.setState({ItemsData:ItemsData});
+        this.setState({ItemData:ItemsData});
     }
-    setsearchData(e){
-        this.setState({selectedItemName:e.target.value});
-        console.log(e.target.value);
-        return e.target.value;
+    setSearchData(searchdata){
+        this.setState({searchdata:searchdata});
     }
+
+ //   setsearchData(e){
+  //      this.setState({selectitemname:e.target.value});
+
+   // }
     state = {
         name: 'Composed TextField',
     };
 
-    ViewAll_Items(){
+    tableload(){
         Axios.get('http://localhost:8083/api/item/getItems').then(function (data) {
             this.setItemsData(data.data);
-            console.log(data);
+            console.log(data.data);
         }.bind(this))
     }
-    View_Items(){
-        Axios.get('http://localhost:8083/patients/'+this.state.selectedbhtno).then(function (data) {
-            this.setItemsData(data.data);
-            console.log(data.data.data);
+    searchItem() {
+        Axios.get('http://localhost:8083/api/item/getItem/I001').then(function (data) {
+            this.setSearchData(data.data);
+            // this.setTextBoxvalues();
+            //console.log(this.state.selectitemname);
+            console.log(data.data);
         }.bind(this))
+
     }
 
 
@@ -116,7 +126,7 @@ class AddItem extends Component {
             categoryID: this.state.selectedCategoryID,
             price: this.state.selectedPrice,
             delivaryInformation: this.state.selectedDelivaryInformation,
-            isRestrictedItem: this.state.selectedRestrictedItem,
+            restrictedItem: this.state.selectedRestrictedItem,
             unit: this.state.selectedUnit
         }
 
@@ -127,19 +137,38 @@ class AddItem extends Component {
             console.log("New Item Details Added");
             alert("New Item Details Added");
 
+           window.location.reload();
+
         })
+    }
+
+
+
+    setTextBoxvalues() {
+        this.state.searchdata.map(function (item) {
+
+            //BHTNo: this.state.selectBhtNo,
+            document.getElementById("id").value = item.itemID;
+            document.getElementById("iname").value = item.itemName;
+            document.getElementById("ct").value = item.categoryID;
+            document.getElementById("iprice").value = item.price;
+            document.getElementById("di").value = item.delivaryInformation;
+            document.getElementById("rs").value =String(item.restrictedItem);
+            document.getElementById("iunit").value = item.unit;
+
+
+        });
     }
     handleChange = event => {
         this.setState({ name: event.target.value });
     };
 
-
-
     render() {
         const {classes} = this.props;
 
-        let tableRows = this.state.ItemsData.map(function (item, i) {
-            return <ViewItemRows itemID={item.itemID} itemName={item.itemName} categoryID={item.categoryID} price={item.price} delivaryInformation={item.delivaryInformation} isRestrictedItem={item.isRestrictedItem} unit={item.unit} key={i}/>
+        let tableRows = this.state.ItemData.map(function (item, i) {
+            return <ViewItemRows itemID={item.itemID} itemName={item.itemName} categoryID={item.categoryID} price={item.price} delivaryInformation={item.delivaryInformation} restrictedItem={String(item.restrictedItem)} unit={item.unit} key={i}/>
+
         });
         return (
 
@@ -152,7 +181,12 @@ class AddItem extends Component {
                             <div className="settings-search-item input">
 
                                 <div className="setting-item-label">Search Item</div>
-                                <input type="text" name="profile-lname" onChange=""  />
+                                <input type="text" name="profile-lname" onChange={this.setsearchData}/>
+
+
+                                <button type="button" name="save" className="search_button"
+                                        onClick={this.searchItem}>search
+                                </button>
 
                             </div>
                             <hr/>
@@ -165,18 +199,18 @@ class AddItem extends Component {
 
                                     <div className="settings-item">
                                         <div className="setting-item-label">Item_id</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedItemId}/>
+                                        <input type="text" id="id" name="profile-lname" onChange={this.setselectedItemId}/>
 
                                     </div><br/>
 
                                     <div className="settings-item">
                                         <div className="setting-item-label">Item Name</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedItemName}/>
+                                        <input type="text" id="iname" name="profile-lname" onChange={this.setselectedItemName}/>
 
                                     </div><br/>
                                     <div className="settings-combo">
                                         <div className="setting-item-label">Category ID</div>
-                                        <select className="combo" onChange={this.setselectedCategoryID}>
+                                        <select className="combo" id="ct" onChange={this.setselectedCategoryID}>
                                             <option>CT001</option>
                                             <option>CT002</option>
                                             <option>CT003</option>
@@ -186,22 +220,30 @@ class AddItem extends Component {
                                     <br/>
                                     <div className="settings-item">
                                         <div className="setting-item-label">Price</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedPrice}/>
+                                        <input type="text" id="iprice" name="profile-lname" onChange={this.setselectedPrice}/>
 
                                     </div><br/>
-                                    <div className="settings-item">
+                                    <div className="settings-combo">
                                         <div className="setting-item-label">Delivary Information</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedDelivaryInformation}/>
+                                        <select className="combo" id="di" onChange={this.setselectedDelivaryInformation}>
+                                            <option>With Delivary</option>
+                                            <option>Without Delivary</option>
+
+                                        </select>
 
                                     </div><br/>
-                                    <div className="settings-item">
-                                        <div className="setting-item-label">Status</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedRestrictedItem}/>
+                                    <div className="settings-combo">
+                                        <div className="setting-item-label">Restricted Status</div>
+                                        <select className="combo" id="rs" onChange={this.setselectedRestrictedItem}>
+                                            <option>True</option>
+                                            <option>False</option>
+
+                                        </select>
 
                                     </div><br/>
                                     <div className="settings-item">
                                         <div className="setting-item-label">Unit</div>
-                                        <input type="text" name="profile-lname" onChange={this.setselectedUnit}/>
+                                        <input type="text" id="iunit" name="profile-lname" onChange={this.setselectedUnit}/>
 
                                     </div><br/>
 

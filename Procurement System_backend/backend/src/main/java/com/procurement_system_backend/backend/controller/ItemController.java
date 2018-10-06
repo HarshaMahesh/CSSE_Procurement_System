@@ -51,7 +51,7 @@ public class ItemController {
 	}
 	
 	
-	@RequestMapping(value="/getItem/{id}",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/getItem/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Item> getItemByID(@PathVariable String id) {
 		
 		logger.info("GET Request item by ID handling");
@@ -64,7 +64,7 @@ public class ItemController {
 	@RequestMapping(value="/getItems",method=RequestMethod.GET)
 	public ResponseEntity<List<Item>> getAllPO() {
 		
-		logger.info("GET Request all orders handling");
+		logger.info("GET Request all items handling");
 		
 		
 		List<Item> response=this.itemAddService.getAllItem();

@@ -32,37 +32,37 @@ class AddOrder extends Component {
 
         this.state = {
 
-            selectedBhtNo:"",
-            selectedPatientName:"",
-            selectedWardNo:"",
-            selectedBedNo:"",
-            selectedAdmittedDate:"",
-            selectedAdmittedTime:0,
+            selectedorderID:"",
+            selectedsequential_Reference:"",
+            selecteditems:"",
+            selectedorderStatus:"",
+            selectedonHold:"",
+            selectedisDraftPurchaseOrder:0,
             name: 'Composed TextField'
         };
     }
     setselectedBHTNo(e){
-        this.setState({selectedBhtNo:e.target.value});
+        this.setState({selectedorderID:e.target.value});
     }
 
     setselectedPatientData(e){
-        this.setState({selectedPatientName:e.target.value});
+        this.setState({selectedsequential_Reference:e.target.value});
     }
 
     setselectedWardNo(e){
-        this.setState({selectedWardNo:e.target.value});
+        this.setState({selecteditems:e.target.value});
     }
 
     setselectedBedNo(e){
-        this.setState({selectedBedNo:e.target.value});
+        this.setState({selectedorderStatus:e.target.value});
     }
 
     setselectedAdmittedDate(e){
-        this.setState({selectedAdmittedDate:e.target.value});
+        this.setState({selectedonHold:e.target.value});
     }
 
     setselectedadmittedTime(e){
-        this.setState({selectedAdmittedTime:e.target.value});
+        this.setState({selectedisDraftPurchaseOrder:e.target.value});
     }
 
 
@@ -75,12 +75,12 @@ class AddOrder extends Component {
     submitAdmissionData(){
         //console.log("Button Clicked");
         let object = {
-            BHTNo: this.state.selectedBhtNo,
-            patientName: this.state.selectedPatientName,
-            wardNo: this.state.selectedWardNo,
-            bedNo: this.state.selectedBedNo,
-            admittedDate: this.state.selectedAdmittedDate,
-            admittedTime: this.state.selectedAdmittedTime
+            BHTNo: this.state.selectedItemId,
+            patientName: this.state.selectedItemName,
+            wardNo: this.state.selectedCategoryID,
+            bedNo: this.state.selectedPrice,
+            admittedDate: this.state.selectedDelivaryInformation,
+            admittedTime: this.state.selectedRestrictedItem
         }
 
         console.log(object);
