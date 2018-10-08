@@ -76,6 +76,16 @@ class AddOrder extends Component {
     setselectedadonHolde(e){
         this.setState({selectedonHold:e.target.value});
     }
+    setOrderData(OrderData){
+        this.setState({ItemData:OrderData});
+    }
+
+    tableload(){
+        Axios.get('http://localhost:8083/api/purchase_order/Orders').then(function (data) {
+            this.setOrderData(data.data);
+            console.log(data.data);
+        }.bind(this))
+    }
 
     submitItemData(){
         //console.log("Button Clicked");
@@ -124,8 +134,12 @@ class AddOrder extends Component {
                           <center><b><h4 className="title">Order Details</h4></b></center>
                           <div className="settings-search-item input">
 
-                              <div className="setting-item-label">Search Order</div>
-                              <input type="text" name="profile-lname" onChange=""  />
+                              <input type="text" name="profile-lname" onChange={this.setsearchData}/>
+
+
+                              <button type="button" name="save" className="search_button"
+                                      onClick={this.searchItem}>search
+                              </button>
 
                           </div>
                           <hr/>
@@ -150,9 +164,9 @@ class AddOrder extends Component {
                                   <div className="settings-combo">
                                       <div className="setting-item-label">Items</div>
                                       <select className="combo" onChange={this.setselecteditems}>
-                                          <option>Item-1</option>
-                                          <option>Item-2</option>
-                                          <option>Item-3</option>
+                                          <option>cement</option>
+                                          <option>metal</option>
+                                          <option>glass</option>
                                       </select>
 
                                   </div>
@@ -162,9 +176,14 @@ class AddOrder extends Component {
                                       <input type="text" name="profile-lname" onChange={this.setselectedquantity}/>
 
                                   </div><br/>
-                                  <div className="settings-item">
-                                      <div className="setting-item-label">Order Status</div>
-                                      <input type="text" name="profile-lname" onChange={this.setselectedorderStatus}/>
+
+                                  <div className="settings-combo">
+                                      <div className="setting-item-label">Items</div>
+                                      <select className="combo" onChange={this.setselectedorderStatus}>
+                                          <option>Select Approve status</option>
+                                          <option>Unapproved</option>
+
+                                      </select>
 
                                   </div><br/>
                                   <div className="settings-item">

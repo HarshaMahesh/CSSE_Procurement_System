@@ -2,6 +2,10 @@ import Dashboard from "views/Dashboard/Dashboard";
 import AddOrder from "views/AddOrder/AddOrder.jsx";
 import ViewOrders from "views/AddOrder/ViewOrders.jsx";
 import AddItem from "views/AddItem/AddItem.jsx";
+import ManageSiteManager from "views/ManageSiteManagers/ManageSiteManager.jsx";
+import ManageSupplier from "views/ManageSupplier/ManageSupplier";
+import ManageAuthEmployee from "views/ManageAuthorizedEmployee/ManageAuthEmployee.jsx";
+
 
 import TableList from "views/TableList/TableList";
 import Typography from "views/Typography/Typography";
@@ -71,6 +75,25 @@ const dashboardRoutes = [
         name: "My Notification",
         icon: "pe-7s-news-paper",
         component: Typography
+    },
+
+    {
+        path: "/ManageSiteManager",
+        name: "Manage SiteManager",
+        icon: "pe-7s-graph",
+        component: ManageSiteManager
+    },
+    {
+        path: "/ManageSupplier",
+        name: "Manage Supplier",
+        icon: "pe-7s-graph",
+        component: ManageSupplier
+    },
+    {
+        path: "/ManageAuthorizedEmp",
+        name: "Authorized Employee",
+        icon: "pe-7s-graph",
+        component: ManageAuthEmployee
     },
 
   { redirect: true, path: "/", to: "/dashboard", name: "Dashboard" }

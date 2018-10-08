@@ -1,0 +1,78 @@
+.settings-combo123 {
+
+   width: 250%;     
+}
+
+.setting-item-label123{
+
+    font-family: 'poppins';
+    font-size: 16px;
+}
+
+.settings-item123 input{
+
+    height: 35px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.order-add-button123 {
+    width: 25%;
+    height: 45px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    margin-right: 12px;
+    margin-left: 35px;
+    cursor: pointer;
+}
+
+.order-update-button123{
+    width: 25%;
+    height: 45px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    margin-right: 12px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.order-delete-button123{
+    width: 25%;
+    height: 45px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    margin-right: 12px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.order-clear-button123{
+    width: 10%;
+    height: 45px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Muli';
+    font-size: 19px;
+    margin-top: 15px;
+    margin-left: 16px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+

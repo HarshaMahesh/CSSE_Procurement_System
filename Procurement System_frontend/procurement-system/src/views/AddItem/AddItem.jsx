@@ -180,7 +180,7 @@ class AddItem extends Component {
                             <center><b><h4 className="title">Item Details</h4></b></center>
                             <div className="settings-search-item input">
 
-                                <div className="setting-item-label">Search Item</div>
+
                                 <input type="text" name="profile-lname" onChange={this.setsearchData}/>
 
 

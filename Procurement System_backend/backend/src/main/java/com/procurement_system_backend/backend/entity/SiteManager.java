@@ -1,37 +1,48 @@
-/**
- * Oct 7, 2018
- * 
- */
 package com.procurement_system_backend.backend.entity;
 
-/**
- * @author windula
- *
- */
-public class SiteManager extends AuthorisedEmployee{
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="SiteManager")
+public class SiteManager {
 	
-	private int managerID;
+	private String employeeID;
+	private String employeeName;
+	private String siteName;
+	private String address;
+	private String email;
+	private String phone;
 
-	/**
-	 * @return the managerID
-	 */
-	public int getManagerID() {
-		return managerID;
+	public SiteManager(String employeeID, String employeeName, String siteName, String address, String email, String phone) 
+	{
+		this.employeeID = employeeID;
+		this.employeeName = employeeName;
+		this.siteName = siteName;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+	}
+	
+	public String getEmployeeID() {
+		return employeeID;
 	}
 
-	/**
-	 * @param managerID the managerID to set
-	 */
-	public void setManagerID(int managerID) {
-		this.managerID = managerID;
+	public String getEmployeeName() {
+		return employeeName;
 	}
 
-	/**
-	 * 
-	 * 
-	 */
-	@Override
-	public void addComment() {
+	public String getSiteName() {
+		return siteName;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
 }

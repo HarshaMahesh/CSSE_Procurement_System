@@ -86,7 +86,7 @@ public class PurchaseOrderController {
 		return response;
 	}
 	
-	@RequestMapping(value="/Orders",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/Orders",method=RequestMethod.GET)
 	public ResponseEntity<List<PurchaseOrder>> getAllPO() {
 		
 		logger.info("GET Request all orders handling");
