@@ -8,9 +8,9 @@ class ViewItemRow extends Component{
     render(){
         return(
             <tr>
-                <td>{this.props.itemID}</td>
-                <td>{this.props.itemName}</td>
-                <td>{this.props.categoryID}</td>
+                <td>{this.props.logID}</td>
+                <td>{this.props.logDetail}</td>
+                <td>{this.props.dateTime}</td>
                 
             </tr>
         )
